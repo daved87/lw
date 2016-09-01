@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 // SystemJS configuration file, see links for more information
 // https://github.com/systemjs/systemjs
@@ -9,6 +9,10 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
+  'bootstrap': 'vendor/bootstrap',
+  'jquery': 'vendor/jquery',
+  'bootstrap-material-design': 'vendor/bootstrap-material-design',
+  'font-awesome': 'vendor/font-awesome'
 };
 
 /** User packages configuration. */
@@ -36,6 +40,10 @@ const barrels: string[] = [
   // App specific barrels.
   'app',
   'app/shared',
+  'app/legislators/legislators',
+  'app/shared/navigation/main-nav',
+  'app/home/home',
+  'app/legislators/legislator-detail',
   /** @cli-barrel */
 ];
 
