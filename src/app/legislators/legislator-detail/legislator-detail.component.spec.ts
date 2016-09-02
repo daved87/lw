@@ -7,7 +7,7 @@ import { LegislatorDetailComponent } from './legislator-detail.component';
 
 describe('Component: LegislatorDetail', () => {
   it('should create an instance', () => {
-    let component = new LegislatorDetailComponent();
+    let component = LegislatorDetailComponent;
     expect(component).toBeTruthy();
   });
 });

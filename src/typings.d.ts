@@ -3,4 +3,5 @@
 // https://www.typescriptlang.org/docs/handbook/writing-declaration-files.html
 
 /// <reference path="../typings/index.d.ts" />
+/// <reference path="../typings/jquery/jquery.d.ts" />
 declare var module: { id: string };
