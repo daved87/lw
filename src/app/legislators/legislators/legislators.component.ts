@@ -4,26 +4,19 @@ import { LegislatorsService } from '../legislators.service';
 
 @Component({
   moduleId: module.id,
-  templateUrl: 'legislators.component.html',
-  styleUrls: ['legislators.component.css']
+  templateUrl: 'legislators.component.html'
 })
 export class LegislatorsComponent implements OnInit {
-  legislator: ILegislator;
-  legislators: ILegislators;
+  legislators: ILegislator[] = [];
   errorMessage: string;
-  crit: any = [];
+  crit: any = {};
 
   constructor(private _legislatorsService: LegislatorsService) { }
 
-  ngOnInit() {
-/*    this._legislatorsService.getLegislatorById('C001098')
+  ngOnInit(): void {
+      this._legislatorsService.getLegislators(this.crit)
         .subscribe(
-          legislators => { this.legislator = legislators.results[0]; console.log(legislators.results[0]); },
-          error => this.errorMessage = <any> error);*/
-      this.crit['state'] = 'PA';
-      this._legislatorsService.getLegislators({'state': 'PA'})
-        .subscribe(
-          legislators => { this.legislators = legislators; console.log(legislators); },
+          legislators => { this.legislators = legislators.results; console.log(legislators.results); },
           error => this.errorMessage = <any> error);
   }
 

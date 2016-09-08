@@ -1,3 +1,5 @@
+
+
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
@@ -14,7 +16,7 @@ export class LegislatorsService {
   getLegislatorById(id: string): Observable<ILegislators> {
     return this._http.get(this._legislatorUrl + this._apiKey + '&bioguide_id=' + id)
       .map((response: Response) => <ILegislators> response.json())
-      //.do(data => console.log(JSON.stringify(data)))
+      // .do(data => console.log(JSON.stringify(data)))
       .catch(this.handleError);
   }
 
@@ -27,6 +29,7 @@ export class LegislatorsService {
   getLegislatorsByCoordinates(lat: number, long: number): Observable<ILegislators> {
     return this._http.get(this._legislatorUrl + '/locate' + this._apiKey + '&latitude=' + lat + '&longitude=' + long)
       .map((response: Response) => <ILegislators> response.json())
+      // .do(data => console.log(JSON.stringify(data)))
       .catch(this.handleError);
   }
 

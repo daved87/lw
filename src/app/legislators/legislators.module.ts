@@ -1,4 +1,5 @@
-import { NgModule } from '@angular/core';
+import { NgModule  } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 import { legislatorsRouting } from './legislators.routing';
@@ -9,6 +10,7 @@ import { LegislatorsService } from './legislators.service';
 @NgModule({
   imports: [
     FormsModule,
+    BrowserModule,
     legislatorsRouting
   ],
   declarations: [

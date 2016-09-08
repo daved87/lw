@@ -6,7 +6,7 @@ import { MainNavComponent } from './shared/navigation/main-nav/main-nav.componen
   selector: 'lw-app',
   template: `
             <main-nav></main-nav>
-            <div class='container'>
+            <div class='container-fluid'>
               <router-outlet></router-outlet>
             </div>
             `,

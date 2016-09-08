@@ -4,21 +4,19 @@ import { HttpModule } from '@angular/http';
 
 import { routing } from './app.routing';
 import { AppComponent }  from './app.component';
-import { HomeComponent } from './home/home/home.component';
-
-/* Feature Modules */
 import { LegislatorsModule } from './legislators/legislators.module';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   imports: [
     BrowserModule,
     HttpModule,
     routing,
+    HomeModule,
     LegislatorsModule
   ],
   declarations: [
-    AppComponent,
-    HomeComponent
+    AppComponent
   ],
   bootstrap: [ AppComponent ]
 })
