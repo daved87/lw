@@ -40,9 +40,11 @@ export interface ILegislator {
 export interface ILegislators {
     results: ILegislator[];
     count: number;
-    page: {
-        count: number;
-        per_page: number;
-        page: number;
-    };
+    page: IPage;
+}
+
+export interface IPage {
+    count: number;
+    per_page: number;
+    page: number;
 }

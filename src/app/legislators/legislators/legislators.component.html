@@ -1,5 +1,67 @@
-<div>
-  <ul>
-    <div *ngFor="let legislator of legislators">{{legislator.first_name}}</div>
-  </ul>
+
+<div class="row">
+  <app-search-dialog [critera]='crit'></app-search-dialog>
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <ul class="pager">
+      <li [class.disabled] = 'pageInfo.page == 1' class="previous"><a (click)='pageChange(pageInfo.page - 1)' href="javascript:void(0)">← Older</a></li>
+      <li>
+          <span><input type="text" id='currPage' #currPage value="{{pageInfo.page}}" (blur)='pageChange(currPage.value)'> of {{pageInfo.count}}</span>       
+      </li>
+      <li [class.disabled] = 'pageInfo.page == pageInfo.count' class="next"><a class="withripple" href="javascript:void(0)" (click)='pageChange(pageInfo.page + 1)'>Newer →</a></li>
+    </ul>
+  </div>
 </div>
+
+<div class="row">
+  <div *ngFor='let leg of legislators' class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+            <a routerLink='/legislators/{{leg.bioguide_id}}'>
+              <h3 class="panel-title">          
+                <img src="https://theunitedstates.io/images/congress/225x275/{{leg.bioguide_id}}.jpg" class="img-responsive center" alt="Image">           
+              </h3>
+            </a>
+        </div>
+        <div class="panel-body">
+          <table class="table table-condensed">
+            <thead>
+              <tr>
+                <th class='text-center' colspan='3'>
+                  {{leg.title + ' ' + leg.first_name + ' ' + leg.last_name + ' (' + leg.party + ')'}}
+                    <div>
+                      <a class="btn btn-xs btn-raised btn-warning withripple" *ngIf='leg.youtube_id' target="_blank" href="https://www.youtube.com/user/{{leg.youtube_id}}">
+                          <i class='fa fa-2x fa-youtube-square' aria-hidden="true"></i>
+                      </a>
+                      <a class="btn btn-xs btn-raised btn-primary withripple" target="_blank" *ngIf='leg.twitter_id' href="http://twitter.com/{{leg.twitter_id}}">
+                        <i class='fa fa-2x fa-twitter-square' aria-hidden="true"></i>
+                      </a>
+                      <a class="btn btn-xs btn-raised btn-info withripple" target="_blank" *ngIf='leg.facebook_id' href="http://www.facebook.com/{{leg.facebook_id}}">
+                        <i class='fa fa-2x fa-facebook-square' aria-hidden="true"></i>
+                      </a>                       
+                      <a class="btn btn-xs btn-raised btn-default withripple" target="_blank" *ngIf='leg.website' href="{{leg.website}}">
+                        <i class='fa fa-2x fa-share' aria-hidden="true"></i>
+                      </a>                                            
+                    </div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><b>Term: </b></td>
+                <td>{{leg.term_start}}</td>
+                <td>{{leg.term_end}}</td>
+              </tr>
+              <tr>
+                <td><b>State: </b></td>
+                <td>{{leg.state}}</td>
+                <td class='capitalize'>{{leg.chamber}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+

@@ -3,11 +3,11 @@
 import { By }           from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { addProviders, async, inject } from '@angular/core/testing';
-import { LegislatorDetailComponent } from './legislator-detail.component';
+import { BillsDetailComponent } from './bills-detail.component';
 
-describe('Component: LegislatorDetail', () => {
+describe('Component: BillsDetail', () => {
   it('should create an instance', () => {
-    let component = LegislatorDetailComponent;
+    let component = new BillsDetailComponent();
     expect(component).toBeTruthy();
   });
 });

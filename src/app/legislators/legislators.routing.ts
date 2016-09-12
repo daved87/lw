@@ -3,11 +3,11 @@ import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule} from '@angular/router';
 
 import { LegislatorsComponent } from './legislators/legislators.component';
-import { LegislatorDetailComponent } from './legislator-detail/legislator-detail.component';
+import { LegislatorsDetailComponent } from './legislators-detail/legislators-detail.component';
 
 export const legislatorsRoutes: Routes = [
   { path: 'legislators', component: LegislatorsComponent },
-  { path: 'legislators/:id', component: LegislatorDetailComponent }
+  { path: 'legislators/:id', component: LegislatorsDetailComponent }
 ];
 
 export const legislatorsRouting: ModuleWithProviders =

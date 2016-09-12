@@ -13,7 +13,6 @@ export class HomeComponent implements OnInit {
   colSpan: number = 0;
   errorMessage: string = '';
 
-
   constructor(private _legislatorService: LegislatorsService) { }
 
   ngOnInit(): void {
@@ -22,18 +21,17 @@ export class HomeComponent implements OnInit {
           legislators => {this.legislators = legislators.results; this.colSpan = legislators.results.length; },
           error => this.errorMessage = <any> error);
 
-    // if ('geolocation' in navigator) {
-        // this.getLegislatorsByGeoLocation();
-    // } 
+    // navigator.geolocation.getCurrentPosition(pos => this.getLegislatorsByGeoLocation(pos), this.geoFailure);
   }
 
-  getLegislatorsByGeoLocation(): void {
-    navigator.geolocation.getCurrentPosition(function (position) {
-      this._legislatorService.getLegislatorsByCoordinates(position.coords.latitude, position.coords.longitude)
-      // this._legislatorService.getLegislatorsByCoordinates(30.267153, -97.743061)
+  getLegislatorsByGeoLocation(pos): void {
+      this._legislatorService.getLegislatorsByCoordinates(pos.coords.latitude, pos.coords.longitude)
           .subscribe(
           legislators => this.legislators = legislators.results,
           error => this.errorMessage = <any> error);
-    });
+  }
+
+  geoFailure(): void {
+    console.log('geo location error');
   }
 }

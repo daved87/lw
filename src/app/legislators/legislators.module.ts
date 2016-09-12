@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { legislatorsRouting } from './legislators.routing';
 import { LegislatorsComponent } from './legislators/legislators.component';
-import { LegislatorDetailComponent } from './legislator-detail/legislator-detail.component';
+import { LegislatorsDetailComponent } from './legislators-detail/legislators-detail.component';
 import { LegislatorsService } from './legislators.service';
 
 @NgModule({
@@ -15,7 +15,7 @@ import { LegislatorsService } from './legislators.service';
   ],
   declarations: [
     LegislatorsComponent,
-    LegislatorDetailComponent
+    LegislatorsDetailComponent
   ],
   providers: [
     LegislatorsService

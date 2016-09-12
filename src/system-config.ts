@@ -43,7 +43,12 @@ const barrels: string[] = [
   'app/legislators/legislators',
   'app/shared/navigation/main-nav',
   'app/home/home',
-  'app/legislators/legislator-detail',
+  'app/legislators/legislators-detail',
+  'app/bills/bills',
+  'app/bills/bills-detail',
+  'app/bills/upcoming-bills',
+  'app/floor/floor-updates',
+  'app/legislators/shared/search-dialog',
   /** @cli-barrel */
 ];
 

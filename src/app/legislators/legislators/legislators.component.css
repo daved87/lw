@@ -1,0 +1,12 @@
+.center {
+    margin: 0 auto;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+#currPage {
+    width: 40px;
+    text-align: right;
+}

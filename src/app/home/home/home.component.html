@@ -1,30 +1,56 @@
 
 <div class="row">       
   <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6">
-    <table class="table table-condensed table-hover">
+    <table class="table table-condensed">
       <tbody>
         <tr>
           <td [colSpan]='colSpan'>
-            <span class="label">Local Representatives</span>
+            <span class="label label-info">Local Representatives</span>
           </td>
         </tr>
         <tr>
           <td *ngFor='let leg of legislators'>
-            <a routerLink='/legislators/{{leg.bioguide_id}}'>
-              <div class="panel panel-default">
+              <div class="panel panel-primary">
                   <div class="panel-heading">
-                    <h3 class="panel-title">          
-                      <img src="https://theunitedstates.io/images/congress/225x275/{{leg.bioguide_id}}.jpg" class="img-responsive center" alt="Image">           
-                    </h3>
+                    <a routerLink='/legislators/{{leg.bioguide_id}}'>
+                      <h3 class="panel-title">          
+                        <img src="https://theunitedstates.io/images/congress/225x275/{{leg.bioguide_id}}.jpg" class="img-responsive center" alt="Image">           
+                      </h3>
+                    </a>
                   </div>
-                  <div class="panel-body">
-                    Panel content
+                  <div class="panel-body text-center">
+                    <h4>{{leg.title + ' ' + leg.first_name + ' ' + leg.last_name}}</h4>
+                    <div>
+                      <a class="btn btn-xs btn-raised btn-warning" *ngIf='leg.youtube_id' target="_blank" href="https://www.youtube.com/user/{{leg.youtube_id}}">
+                          <i class='fa fa-2x fa-youtube-square' aria-hidden="true"></i>
+                      </a>
+                      <a class="btn btn-xs btn-raised btn-primary" target="_blank" *ngIf='leg.twitter_id' href="http://twitter.com/{{leg.twitter_id}}">
+                        <i class='fa fa-2x fa-twitter-square' aria-hidden="true"></i>
+                      </a>
+                      <a class="btn btn-xs btn-raised btn-info" target="_blank" *ngIf='leg.facebook_id' href="http://www.facebook.com/{{leg.facebook_id}}">
+                        <i class='fa fa-2x fa-facebook-square' aria-hidden="true"></i>
+                      </a>                       
+                      <a class="btn btn-xs btn-raised btn-default" target="_blank" *ngIf='leg.website' href="{{leg.website}}">
+                        <i class='fa fa-2x fa-share' aria-hidden="true"></i>
+                      </a>                                            
+                    </div>
                   </div>
               </div>
-            </a>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
+</div>
+
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Panel heading</div>
+    <div class="panel-body">
+      <p>Text goes here...</p>
+    </div>
+
+    <!-- Table -->
+
 </div>

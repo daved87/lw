@@ -6,6 +6,7 @@ import { routing } from './app.routing';
 import { AppComponent }  from './app.component';
 import { LegislatorsModule } from './legislators/legislators.module';
 import { HomeModule } from './home/home.module';
+import { BillsModule } from './bills/bills.module';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { HomeModule } from './home/home.module';
     HttpModule,
     routing,
     HomeModule,
-    LegislatorsModule
+    LegislatorsModule,
+    BillsModule
   ],
   declarations: [
     AppComponent
