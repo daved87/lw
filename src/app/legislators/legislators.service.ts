@@ -1,11 +1,9 @@
-
-
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
-import { ILegislator, ILegislators } from './legislator';
+import { ILegislators } from './legislator';
 
 @Injectable()
 export class LegislatorsService {
@@ -33,12 +31,14 @@ export class LegislatorsService {
       .catch(this.handleError);
   }
 
-  getLegislators(crit: any): Observable<ILegislators> {
+  getLegislators(crit: string[]): Observable<ILegislators> {
     let criteria: string = '';
 
-    $.each(crit, function (key, val) {
-      criteria += '&' + key + '=' + val;
-    });
+    for (let k in crit) {
+      if (crit.hasOwnProperty(k)) {
+        criteria += '&' + k + '=' + crit[k];
+      }
+    }
 
     criteria += !('in_office' in crit) ? '&in_office=true' : '';
 

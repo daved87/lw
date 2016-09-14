@@ -6,12 +6,14 @@ import { legislatorsRouting } from './legislators.routing';
 import { LegislatorsComponent } from './legislators/legislators.component';
 import { LegislatorsDetailComponent } from './legislators-detail/legislators-detail.component';
 import { LegislatorsService } from './legislators.service';
+import { LegislatorSharedModule } from './shared/legislator-shared.module';
 
 @NgModule({
   imports: [
     FormsModule,
     BrowserModule,
-    legislatorsRouting
+    legislatorsRouting,
+    LegislatorSharedModule
   ],
   declarations: [
     LegislatorsComponent,

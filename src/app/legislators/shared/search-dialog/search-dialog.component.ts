@@ -1,5 +1,5 @@
-import { Component, OnChanges, Input,
-         Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { LegislatorsService } from '../../legislators.service';
 
 @Component({
   moduleId: module.id,
@@ -7,16 +7,19 @@ import { Component, OnChanges, Input,
   templateUrl: 'search-dialog.component.html',
   styleUrls: ['search-dialog.component.css']
 })
-export class SearchDialogComponent implements OnInit {
-  @Input() criteria: string[] = [];
+export class SearchDialogComponent {
+  @Output() updatedResults = new EventEmitter<string[]>();
+  crit: string[] = [];
 
-  constructor() { }
+  constructor(private _legislatorsService: LegislatorsService) { }
 
-  ngOnInit() {
+  updateSearchResults(): void {
+      this.updatedResults.emit(this.crit);
+
   }
 
-  onSubmit(): void {
-
+  updateCriteria(obj: any): void {
+    this.crit[obj.target.id] = obj.target.value;
   }
 
 }

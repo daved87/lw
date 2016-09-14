@@ -1,6 +1,6 @@
 
 <div class="row">
-  <app-search-dialog [critera]='crit'></app-search-dialog>
+  <app-search-dialog (updatedResults)='updateSearchResults($event)'></app-search-dialog>
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <ul class="pager">
       <li [class.disabled] = 'pageInfo.page == 1' class="previous"><a (click)='pageChange(pageInfo.page - 1)' href="javascript:void(0)">← Older</a></li>
@@ -28,6 +28,12 @@
               <tr>
                 <th class='text-center' colspan='3'>
                   {{leg.title + ' ' + leg.first_name + ' ' + leg.last_name + ' (' + leg.party + ')'}}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan='3' class='hidden-xs hidden-sm text-center' *ngIf='leg.youtube_id || leg.twitter_id || leg.facebook_id || leg.website'>
                     <div>
                       <a class="btn btn-xs btn-raised btn-warning withripple" *ngIf='leg.youtube_id' target="_blank" href="https://www.youtube.com/user/{{leg.youtube_id}}">
                           <i class='fa fa-2x fa-youtube-square' aria-hidden="true"></i>
@@ -41,11 +47,9 @@
                       <a class="btn btn-xs btn-raised btn-default withripple" target="_blank" *ngIf='leg.website' href="{{leg.website}}">
                         <i class='fa fa-2x fa-share' aria-hidden="true"></i>
                       </a>                                            
-                    </div>
-                </th>
+                    </div>                  
+                </td>
               </tr>
-            </thead>
-            <tbody>
               <tr>
                 <td><b>Term: </b></td>
                 <td>{{leg.term_start}}</td>

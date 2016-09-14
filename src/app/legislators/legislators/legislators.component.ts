@@ -40,4 +40,15 @@ export class LegislatorsComponent implements OnInit {
                          },
           error => this.errorMessage = <any> error);
   }
+
+  updateSearchResults(updatedCriteria: string[]): void {
+      this._legislatorsService.getLegislators(updatedCriteria)
+        .subscribe(
+          legislators => {
+                          this.legislators = legislators.results;
+                          this.pageInfo = legislators.page;
+                         },
+          error => this.errorMessage = <any> error);
+  }
+
 }

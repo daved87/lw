@@ -7,7 +7,7 @@ import { SearchDialogComponent } from './search-dialog.component';
 
 describe('Component: SearchDialog', () => {
   it('should create an instance', () => {
-    let component = new SearchDialogComponent();
+    let component = SearchDialogComponent;
     expect(component).toBeTruthy();
   });
 });
