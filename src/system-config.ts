@@ -9,14 +9,29 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
+  'app': 'src/app',
   'bootstrap': 'vendor/bootstrap',
+  'chart.js': 'vendor/chart.js',
   'jquery': 'vendor/jquery',
   'bootstrap-material-design': 'vendor/bootstrap-material-design',
-  'font-awesome': 'vendor/font-awesome'
+  'font-awesome': 'vendor/font-awesome',
+  '@angular/core': 'vendor/@angular/core/bundles/core.umd.js',
+  '@angular/common': 'vendor/@angular/common/bundles/common.umd.js',
+  '@angular/compiler': 'vendor/@angular/compiler/bundles/compiler.umd.js',
+  '@angular/platform-browser': 'vendor/@angular/platform-browser/bundles/platform-browser.umd.js',
+  '@angular/platform-browser-dynamic': 'vendor/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
+  '@angular/http': 'vendor/@angular/http/bundles/http.umd.js',
+  '@angular/router': 'vendor/@angular/router/bundles/router.umd.js',
+  '@angular/forms': 'vendor/@angular/forms/bundles/forms.umd.js',
+  'ng2-charts': 'vendor/ng2-charts'
 };
 
 /** User packages configuration. */
 const packages: any = {
+  'ng2-charts': { defaultExtension: 'js', main: 'ng2-charts.js' },
+  'chartjs': { defaultExtension: 'js', main: 'Chart.min.js' },
+  'app': {main: 'main', defaultExtension: 'js'},
+  'rxjs': {main: 'Rx.js', defaultExtension: 'js'}
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -36,6 +51,7 @@ const barrels: string[] = [
 
   // Thirdparty barrels.
   'rxjs',
+  'ng2-charts',
 
   // App specific barrels.
   'app',
@@ -49,6 +65,9 @@ const barrels: string[] = [
   'app/bills/upcoming-bills',
   'app/floor/floor-updates',
   'app/legislators/shared/search-dialog',
+  'app/votes/votes',
+  'app/votes/bill-votes',
+  'app/votes/legislator-votes',
   /** @cli-barrel */
 ];
 
@@ -71,4 +90,4 @@ System.config({
 });
 
 // Apply the user's configuration.
-System.config({ map, packages });
+System.config({map, packages});

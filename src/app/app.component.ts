@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MainNavComponent } from './shared/navigation/main-nav/main-nav.component';
 
 @Component({
   moduleId: module.id,
@@ -10,8 +9,7 @@ import { MainNavComponent } from './shared/navigation/main-nav/main-nav.componen
               <router-outlet></router-outlet>
             </div>
             `,
-  styleUrls: ['app.component.css'],
-  directives: [ MainNavComponent ]
+  styleUrls: ['app.component.css']
 })
 
 export class AppComponent {

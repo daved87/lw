@@ -1,13 +1,11 @@
-/* tslint:disable:no-unused-variable */
-
 import { By }           from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { async, inject } from '@angular/core/testing';
-import { FloorUpdatesComponent } from './floor-updates.component';
+import { VotesComponent } from './votes.component';
 
-describe('Component: FloorUpdates', () => {
+describe('Component: Votes', () => {
   it('should create an instance', () => {
-    let component = new FloorUpdatesComponent();
+    let component = new VotesComponent();
     expect(component).toBeTruthy();
   });
 });

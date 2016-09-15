@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { IPage, ILegislator } from '../legislator';
 import { LegislatorsService } from '../legislators.service';
-import { SearchDialogComponent } from '../shared/search-dialog/search-dialog.component';
+
 
 @Component({
   moduleId: module.id,
   templateUrl: 'legislators.component.html',
-  styleUrls: ['legislators.component.css'],
-  directives: [SearchDialogComponent]
+  styleUrls: ['legislators.component.css']
 })
 export class LegislatorsComponent implements OnInit {
   legislators: ILegislator[] = [];

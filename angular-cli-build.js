@@ -16,10 +16,12 @@ module.exports = function(defaults) {
       'reflect-metadata/**/*.+(ts|js|js.map)',
       'rxjs/**/*.+(js|js.map)',
       '@angular/**/*.+(js|js.map)',
+      'ng2-charts/**/**/*',
       'bootstrap/dist/**/*',
       'bootstrap-material-design/dist/**/*',
       'jquery/dist/*',
-      'font-awesome/**/*'
+      'font-awesome/**/*',
+      'chart.js/**/*'
     ]
   });
 };
